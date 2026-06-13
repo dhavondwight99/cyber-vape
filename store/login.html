@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CYBER-VAPE | Portal Login</title>
+  <meta name="description" content="CYBER-VAPE unified portal login for customers, staff, and super admin." />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+  <link rel="stylesheet" href="../assets/css/theme.css" />
+  <style>
+    body {
+      min-height: 100vh;
+      background: radial-gradient(circle at top, rgba(0, 240, 255, 0.16), transparent 20%),
+                  radial-gradient(circle at bottom right, rgba(188, 19, 254, 0.12), transparent 25%),
+                  linear-gradient(180deg, #06070f 0%, #090b12 100%);
+      color: #e3e2e7;
+    }
+    .portal-card {
+      background: rgba(7, 10, 18, 0.88);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(24px);
+      box-shadow: 0 40px 120px rgba(0, 0, 0, 0.45);
+    }
+    /* Estilo para sa error message para malinaw ang kulay pula sa madilim na background */
+    .text-error-neon {
+      color: #ff4a4a;
+      text-shadow: 0 0 10px rgba(255, 74, 74, 0.3);
+    }
+  </style>
+</head>
+<body>
+  <div class="min-h-screen flex flex-col justify-center px-4 py-12">
+    <div class="max-w-4xl mx-auto grid gap-10 lg:grid-cols-[1.4fr_1fr] items-center">
+      
+      <div class="space-y-6 text-center lg:text-left">
+        <p class="uppercase tracking-[0.35em] text-xs text-cyan-300">CYBER-VAPE ACCESS</p>
+        <h1 class="text-5xl sm:text-6xl font-extrabold tracking-tight text-white">Portal Login</h1>
+        <p class="max-w-xl text-base leading-8 text-slate-400">Enter your email and password to access your account. Customers go to the storefront, staff and super admins get secure dashboard access.</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+          <a href="/store/homepage.html" class="rounded-full bg-white/5 border border-cyan-400/25 px-6 py-3 text-sm font-semibold uppercase tracking-[0.35em] text-cyan-100 hover:bg-cyan-400/10 transition text-center">Back to landing</a>
+          <a href="/store/register.html" class="rounded-full bg-purple-500/90 px-6 py-3 text-sm font-semibold uppercase tracking-[0.35em] text-white hover:bg-purple-400 transition text-center">Create customer account</a>
+        </div>
+      </div>
+
+      <div class="portal-card rounded-[32px] p-8">
+        <div class="mb-8 flex flex-col gap-3">
+          <div>
+            <p class="text-sm uppercase tracking-[0.35em] text-slate-400">Secure login</p>
+            <h2 class="text-2xl font-bold text-white">Email & Password</h2>
+          </div>
+          <div class="rounded-full bg-[#070a13] px-4 py-2 text-[11px] uppercase tracking-[0.35em] text-cyan-300 border border-cyan-400/20 text-center">Access is token authenticated</div>
+        </div>
+
+        <form id="login-form" class="space-y-6">
+          <div class="space-y-2">
+            <label class="block text-[11px] uppercase tracking-[0.35em] text-slate-400">Email</label>
+            <input id="email" type="email" required class="w-full rounded-3xl border border-white/10 bg-[#0f1220] px-4 py-4 text-sm text-white outline-none focus:border-cyan-400/60 focus:ring-0" placeholder="you@neonmail.io" />
+          </div>
+          
+          <div class="space-y-2">
+            <label class="block text-[11px] uppercase tracking-[0.35em] text-slate-400">Password</label>
+            <input id="password" type="password" required class="w-full rounded-3xl border border-white/10 bg-[#0f1220] px-4 py-4 text-sm text-white outline-none focus:border-purple-400/60 focus:ring-0" placeholder="Enter secure passcode" />
+          </div>
+          
+          <div class="rounded-3xl border border-white/10 bg-white/5 p-4 text-sm text-slate-400">
+            <p class="font-semibold text-white">Login with your credentials. Admins and staff will be automatically redirected to the administrative panels upon authentication.</p>
+          </div>
+          
+          <button type="submit" class="w-full rounded-full bg-cyan-400 px-6 py-4 text-sm font-bold uppercase tracking-[0.35em] text-[#00181a] hover:bg-cyan-300 transition shadow-lg shadow-cyan-400/20">Login</button>
+          
+          <p id="error-message" class="text-sm text-error-neon text-center font-semibold hidden"></p>
+        </form>
+      </div>
+
+    </div> 
+  </div>
+
+  
+ <script>
+const loginForm = document.getElementById('login-form');
+const errorMessage = document.getElementById('error-message');
+
+loginForm.addEventListener('submit', async event => {
+    event.preventDefault();
+    errorMessage.classList.add('hidden');
+
+    const email = document.getElementById('email').value.trim();
+    const password = document.getElementById('password').value.trim();
+
+    if (!email || !password) {
+        errorMessage.textContent = 'Email and password are required.';
+        errorMessage.classList.remove('hidden');
+        return;
+    }
+
+    try {
+        const response = await fetch('/api/auth/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email, password })
+        });
+
+        const payload = await response.json();
+
+        if (!response.ok) {
+            errorMessage.textContent = payload.error || 'Invalid email or password.';
+            errorMessage.classList.remove('hidden');
+            return;
+        }
+
+        const userData = payload.user || {};
+        const userRole = userData.role || payload.role;
+
+        const userSession = {
+            token: payload.token,
+            role: userRole,
+            email: userData.email || email,
+            full_name: userData.full_name || payload.full_name || 'Cyber Staff'
+        };
+        
+        localStorage.setItem('cv_user', JSON.stringify(userSession));
+
+        if (userRole === 'staff') {
+            window.location.href = '/staff-admin.html'; 
+        } else if (userRole === 'super_admin') {
+            window.location.href = '/admin/dashboard.html';
+        } else {
+            window.location.href = '/store/homepage.html';
+        }
+
+    } catch (error) {
+        console.error('Login error:', error);
+        errorMessage.textContent = 'An unexpected error occurred.';
+        errorMessage.classList.remove('hidden');
+    }
+});
+</script>
+  
+</body>
+</html>

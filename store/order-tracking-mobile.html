@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>CYBER-VAPE | Track Your Clouds</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link rel="stylesheet" href="../assets/css/theme.css"/>
+  <script src="../assets/js/shared.js"></script>
+  <style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="text-on-surface pb-24">
+<!-- Top Navigation Anchor -->
+<nav class="fixed top-0 w-full z-50 bg-glass-fill backdrop-blur-md border-b border-white/10 shadow-[0_0_20px_rgba(0,240,255,0.2)]">
+  <div class="flex justify-between items-center px-5 py-4">
+    <div class="flex items-center gap-3">
+      <a href="order-tracking.html" class="material-symbols-outlined text-primary-container scale-95 active:scale-90 transition-transform">arrow_back</a>
+      <h1 class="font-display-lg text-headline-md text-primary-container tracking-tighter uppercase">CYBER-VAPE</h1>
+    </div>
+    <div class="flex gap-4">
+      <span class="material-symbols-outlined text-on-surface-variant">search</span>
+      <span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">shopping_cart</span>
+    </div>
+  </div>
+</nav>
+
+<main class="mt-20 px-5 space-y-6">
+  <!-- Order Header -->
+  <header class="glass-card p-5 rounded-xl">
+    <div class="flex justify-between items-start mb-2">
+      <div>
+        <span class="font-label-caps text-label-caps text-primary-container block mb-1">CURRENT ORDER</span>
+        <h2 class="font-headline-md text-headline-md text-primary tracking-tight">#CV-99283-FOG</h2>
+      </div>
+      <div class="text-right">
+        <span class="font-label-caps text-label-caps text-on-surface-variant block mb-1">ETA</span>
+        <span class="font-price-display text-price-display text-secondary">14:20</span>
+      </div>
+    </div>
+    <div class="flex items-center gap-2 mt-4 pt-4 border-t border-white/5">
+      <div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center border border-primary-container/30">
+        <span class="material-symbols-outlined text-primary-container">local_shipping</span>
+      </div>
+      <div>
+        <p class="font-body-md text-body-md font-bold text-on-surface">Neo-Logistics Courier</p>
+        <p class="font-label-caps text-label-caps text-on-surface-variant">KAIZEN-04 (Electric Bike)</p>
+      </div>
+    </div>
+  </header>
+  
+  <!-- Live Stepper (Compact Vertical) -->
+  <section class="glass-card p-6 rounded-xl">
+    <h3 class="font-label-caps text-label-caps text-primary-container mb-6">LIVE STATUS</h3>
+    <div class="space-y-0 relative">
+      <!-- Vertical Line -->
+      <div class="absolute left-3 top-2 bottom-2 w-0.5 bg-surface-variant"></div>
+      <div class="absolute left-3 top-2 h-2/3 w-0.5 bg-primary-container shadow-[0_0_8px_rgba(0,240,255,0.6)]"></div>
+      
+      <!-- Step 1: Placed -->
+      <div class="relative pl-10 pb-8">
+        <div class="absolute left-0 top-0 w-6 h-6 rounded-full bg-primary-container flex items-center justify-center z-10">
+          <span class="material-symbols-outlined text-on-primary text-xs" style="font-variation-settings: 'wght' 700;">check</span>
+        </div>
+        <p class="font-body-md text-body-md font-bold text-primary">Order Placed</p>
+        <p class="font-label-caps text-[10px] text-on-surface-variant">13:05 • Verified</p>
+      </div>
+      <!-- Step 2: Warehouse -->
+      <div class="relative pl-10 pb-8">
+        <div class="absolute left-0 top-0 w-6 h-6 rounded-full bg-primary-container flex items-center justify-center z-10">
+          <span class="material-symbols-outlined text-on-primary text-xs" style="font-variation-settings: 'wght' 700;">check</span>
+        </div>
+        <p class="font-body-md text-body-md font-bold text-primary">Vaporized &amp; Packed</p>
+        <p class="font-label-caps text-[10px] text-on-surface-variant">13:45 • Ready for pickup</p>
+      </div>
+      <!-- Step 3: Transit (Current) -->
+      <div class="relative pl-10 pb-8">
+        <div class="absolute left-0 top-0 w-6 h-6 rounded-full bg-primary-container flex items-center justify-center z-10 pulse-ring shadow-[0_0_12px_#00f0ff]">
+          <div class="w-2 h-2 rounded-full bg-on-primary"></div>
+        </div>
+        <p class="font-body-md text-body-md font-bold text-primary-container">In Transit</p>
+        <p class="font-label-caps text-[10px] text-primary-container/80">14:10 • 1.2 miles away</p>
+      </div>
+      <!-- Step 4: Arrived -->
+      <div class="relative pl-10">
+        <div class="absolute left-0 top-0 w-6 h-6 rounded-full bg-surface-variant flex items-center justify-center z-10 border border-white/5">
+          <div class="w-2 h-2 rounded-full bg-on-surface-variant"></div>
+        </div>
+        <p class="font-body-md text-body-md font-bold text-on-surface-variant">Arrived</p>
+        <p class="font-label-caps text-[10px] text-on-surface-variant/50">Expected 14:20</p>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Interactive Map Mockup -->
+  <section class="relative h-64 w-full rounded-2xl overflow-hidden glass-card border-none shadow-[0_0_30px_rgba(0,0,0,0.5)]">
+    <img alt="Tracking Map" class="w-full h-full object-cover grayscale opacity-60 brightness-50" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGIkY-PdXcK5uHuktevWpmvFEnshpSRTXPah0Ahevwnw9TyypYoCfWAK8x-UnKCARic_bnSIODjVBAG7V01aLHJoME9o4Bkafvg2_TIVtBJqybgmRwELMsKzaB09C-kv3VKkI1Z9-vgX3Pp7wkqwc388mTWClS2AzCd_Lv2Is6Bpiuhh5Z0GpRKy7uYFZ4QyTVz4nwbtRaHGJtp9R-NOzqo3yffTTsUN4ctWDwCCBnmuy_t6GOtRB_0npZf-aTXjvXQt4hwI0TvqAe"/>
+    <!-- Map Overlays -->
+    <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/80 to-transparent pointer-events-none"></div>
+    <!-- Courier Marker -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
+      <div class="bg-primary-container text-on-primary p-2 rounded-full shadow-[0_0_20px_#00f0ff] pulse-ring">
+        <span class="material-symbols-outlined block" style="font-variation-settings: 'FILL' 1;">electric_moped</span>
+      </div>
+      <div class="mt-2 px-2 py-1 bg-surface-container-highest rounded text-[10px] font-label-caps border border-primary-container/30">
+        COURIER: KAIZEN
+      </div>
+    </div>
+    <!-- Zoom Controls -->
+    <div class="absolute right-4 bottom-4 flex flex-col gap-2">
+      <button class="w-10 h-10 rounded-lg bg-surface-container-high/80 backdrop-blur-md flex items-center justify-center border border-white/10 active:scale-90 transition-transform">
+        <span class="material-symbols-outlined text-primary-container">add</span>
+      </button>
+      <button class="w-10 h-10 rounded-lg bg-surface-container-high/80 backdrop-blur-md flex items-center justify-center border border-white/10 active:scale-90 transition-transform">
+        <span class="material-symbols-outlined text-primary-container">remove</span>
+      </button>
+    </div>
+    <!-- Recenter -->
+    <button class="absolute left-4 bottom-4 w-10 h-10 rounded-lg bg-surface-container-high/80 backdrop-blur-md flex items-center justify-center border border-white/10 active:scale-90 transition-transform">
+      <span class="material-symbols-outlined text-primary-container">my_location</span>
+    </button>
+  </section>
+  
+  <!-- Courier Contact Options -->
+  <section class="grid grid-cols-2 gap-4">
+    <button class="flex items-center justify-center gap-2 py-4 rounded-xl bg-surface-container-high border border-primary-container/20 text-primary-container font-label-caps active:scale-95 transition-transform">
+      <span class="material-symbols-outlined text-lg">chat_bubble</span> MESSAGE
+    </button>
+    <button class="flex items-center justify-center gap-2 py-4 rounded-xl bg-surface-container-high border border-primary-container/20 text-primary-container font-label-caps active:scale-95 transition-transform">
+      <span class="material-symbols-outlined text-lg">call</span> CALL
+    </button>
+  </section>
+  
+  <!-- Tracking History -->
+  <section class="glass-card rounded-xl overflow-hidden">
+    <div class="p-5 border-b border-white/5 flex justify-between items-center">
+      <h3 class="font-label-caps text-label-caps text-on-surface">TRACKING HISTORY</h3>
+      <span class="material-symbols-outlined text-on-surface-variant text-sm">history</span>
+    </div>
+    <div class="max-h-60 overflow-y-auto divide-y divide-white/5">
+      <div class="p-4 flex gap-4 hover:bg-white/5 transition-colors">
+        <span class="font-label-caps text-[10px] text-on-surface-variant mt-1">14:10</span>
+        <div>
+          <p class="font-body-md text-body-md font-medium text-on-surface">Courier picked up your package</p>
+          <p class="text-[12px] text-on-surface-variant">District 7 Hub</p>
+        </div>
+      </div>
+      <div class="p-4 flex gap-4 hover:bg-white/5 transition-colors">
+        <span class="font-label-caps text-[10px] text-on-surface-variant mt-1">13:45</span>
+        <div>
+          <p class="font-body-md text-body-md font-medium text-on-surface">Quality check passed</p>
+          <p class="text-[12px] text-on-surface-variant">Batch ID: #VG-7030-PX</p>
+        </div>
+      </div>
+      <div class="p-4 flex gap-4 hover:bg-white/5 transition-colors opacity-60">
+        <span class="font-label-caps text-[10px] text-on-surface-variant mt-1">13:15</span>
+        <div>
+          <p class="font-body-md text-body-md font-medium text-on-surface">Payment confirmed</p>
+          <p class="text-[12px] text-on-surface-variant">Transaction via Cyber-Wallet</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Secondary Actions -->
+  <section class="pb-8">
+    <button class="w-full py-5 rounded-2xl bg-primary-container text-on-primary font-headline-md text-sm tracking-widest uppercase glow-cyan active:scale-95 transition-transform mb-4">
+      View Digital Receipt
+    </button>
+    <button class="w-full py-4 rounded-2xl border border-white/10 text-on-surface-variant font-label-caps text-[10px] active:bg-white/5 transition-all">
+      Cancel Order • Terms Apply
+    </button>
+  </section>
+</main>
+
+<!-- FAB for Support -->
+<button class="fixed bottom-24 right-5 w-14 h-14 rounded-full bg-secondary-container text-white flex items-center justify-center shadow-[0_0_20px_rgba(182,0,248,0.5)] z-40 active:scale-90 transition-transform">
+  <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">headset_mic</span>
+</button>
+
+<!-- Bottom Navigation Shell (Mobile) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 px-4 bg-glass-fill backdrop-blur-xl border-t border-white/10 shadow-[0_-4px_20px_rgba(0,240,255,0.15)] rounded-t-xl">
+  <div class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary active:scale-110 transition-transform duration-200">
+    <span class="material-symbols-outlined">storefront</span>
+    <span class="font-label-caps text-label-caps mt-1">Shop</span>
+  </div>
+  <div class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary active:scale-110 transition-transform duration-200">
+    <span class="material-symbols-outlined">category</span>
+    <span class="font-label-caps text-label-caps mt-1">Categories</span>
+  </div>
+  <div class="flex flex-col items-center justify-center text-primary-container drop-shadow-[0_0_8px_rgba(0,240,255,0.6)] active:scale-110 transition-transform duration-200">
+    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">shopping_basket</span>
+    <span class="font-label-caps text-label-caps mt-1">Cart</span>
+  </div>
+  <div class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary active:scale-110 transition-transform duration-200">
+    <span class="material-symbols-outlined">person</span>
+    <span class="font-label-caps text-label-caps mt-1">Profile</span>
+  </div>
+</nav>
+
+<script>
+  // touch feedback on map
+  const mapSection = document.querySelector('section.relative.h-64');
+  if (mapSection) {
+    mapSection.addEventListener('touchstart', () => {
+      mapSection.style.transform = 'scale(0.98)';
+      mapSection.style.transition = 'transform 0.2s ease';
+    });
+    mapSection.addEventListener('touchend', () => {
+      mapSection.style.transform = 'scale(1)';
+    });
+  }
+</script>
+</body>
+</html>

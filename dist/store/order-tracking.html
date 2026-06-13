@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Order Tracking | CYBER-VAPE</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-primary": "#00363a",
+            "surface-slate": "#404040",
+            "secondary-container": "#b600f8",
+            "primary": "#dbfcff",
+            "surface-container-low": "#1a1b20",
+            "inverse-surface": "#e3e2e7",
+            "inverse-primary": "#006970",
+            "primary-fixed-dim": "#00dbe9",
+            "surface-container-highest": "#343439",
+            "error": "#ffb4ab",
+            "secondary": "#ebb2ff",
+            "on-secondary-fixed": "#320047",
+            "on-background": "#e3e2e7",
+            "on-secondary-fixed-variant": "#74009f",
+            "surface-container-lowest": "#0d0e12",
+            "on-secondary": "#520072",
+            "on-tertiary": "#283500",
+            "surface-variant": "#343439",
+            "glow-purple": "rgba(188, 19, 254, 0.4)",
+            "secondary-fixed": "#f8d8ff",
+            "inverse-on-surface": "#2f3035",
+            "surface-container": "#1e1f24",
+            "tertiary-fixed-dim": "#abd600",
+            "tertiary-fixed": "#c3f400",
+            "surface-bright": "#38393d",
+            "glow-cyan": "rgba(0, 240, 255, 0.4)",
+            "secondary-fixed-dim": "#ebb2ff",
+            "on-surface-variant": "#b9cacb",
+            "outline-variant": "#3b494b",
+            "tertiary": "#e9ffa8",
+            "on-error": "#690005",
+            "primary-fixed": "#7df4ff",
+            "outline": "#849495",
+            "surface-dim": "#121317",
+            "on-error-container": "#ffdad6",
+            "on-surface": "#e3e2e7",
+            "glass-fill": "rgba(25, 26, 31, 0.6)",
+            "on-tertiary-container": "#506600",
+            "surface": "#121317",
+            "primary-container": "#00f0ff",
+            "on-secondary-container": "#fff6fc",
+            "on-primary-fixed-variant": "#004f54",
+            "on-primary-fixed": "#002022",
+            "on-primary-container": "#006970",
+            "surface-container-high": "#292a2e",
+            "error-container": "#93000a",
+            "surface-tint": "#00dbe9",
+            "background": "#121317",
+            "surface-charcoal": "#191A1F",
+            "tertiary-container": "#bbea00",
+            "on-tertiary-fixed-variant": "#3c4d00",
+            "on-tertiary-fixed": "#161e00",
+            "on-tertiary-container-variant": "#506600"
+          },
+          fontFamily: {
+            "display-lg": ["Sora", "sans-serif"],
+            "price-display": ["Sora", "sans-serif"],
+            "headline-lg": ["Sora", "sans-serif"],
+            "body-md": ["Inter", "sans-serif"],
+            "headline-md": ["Sora", "sans-serif"],
+            "label-caps": ["JetBrains Mono", "monospace"],
+            "headline-lg-mobile": ["Sora", "sans-serif"],
+            "body-lg": ["Inter", "sans-serif"]
+          },
+          fontSize: {
+            "display-lg": ["2.5rem", { lineHeight: "1.1" }],
+            "headline-lg": ["1.75rem", { lineHeight: "1.2" }],
+            "headline-md": ["1.25rem", { lineHeight: "1.3" }],
+            "headline-lg-mobile": ["1.5rem", { lineHeight: "1.2" }],
+            "label-caps": ["0.625rem", { lineHeight: "1.4", letterSpacing: "0.1em" }],
+            "price-display": ["1.5rem", { lineHeight: "1" }]
+          },
+          spacing: {
+            "container-max": "1280px",
+            "margin-desktop": "4rem",
+            "gutter": "1.5rem",
+            "base": "0.5rem",
+            "margin-mobile": "1.25rem"
+          },
+          maxWidth: {
+            "container-max": "1280px"
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sora:wght@300;400;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
+  <link rel="stylesheet" href="/assets/shared-BMJ3LmPy.css">
+  <script src="/assets/shared-DEtbGjks.js" defer></script>
+</head>
+<body class="font-body-md text-body-md min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-glass-fill backdrop-blur-xl border-b border-white/10 shadow-[0_4_20px_rgba(0,0,0,0.5)]">
+  <nav class="flex justify-between items-center px-margin-desktop py-4 max-w-container-max mx-auto">
+    <div class="flex items-center gap-8">
+      <a class="font-headline-md text-headline-md font-bold text-primary-container drop-shadow-[0_0_10px_rgba(0,240,255,0.4)]" href="shop.html">CYBER-VAPE</a>
+      <div class="hidden md:flex gap-6">
+        <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors" href="shop.html">Shop</a>
+        <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors" href="#">Flavors</a>
+        <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors" href="checkout.html">Checkout</a>
+        <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors" href="../index.html">Admin Dashboard</a>
+      </div>
+    </div>
+    <div class="flex items-center gap-4">
+      <div class="relative hidden sm:block">
+        <input class="bg-surface-container-low border-none rounded-full px-4 py-2 text-sm focus:ring-1 focus:ring-primary-container w-48 transition-all outline-none" placeholder="Search tech..." type="text"/>
+        <span class="material-symbols-outlined absolute right-3 top-2 text-on-surface-variant text-base">search</span>
+      </div>
+      <button class="material-symbols-outlined text-primary-container p-2 hover:bg-white/5 rounded-full transition-all active:scale-95">shopping_cart</button>
+      <button class="material-symbols-outlined text-primary-container p-2 hover:bg-white/5 rounded-full transition-all active:scale-95">account_circle</button>
+    </div>
+  </nav>
+</header>
+
+<main class="flex-grow pt-24 pb-12 px-4 md:px-margin-desktop max-w-container-max mx-auto w-full flex flex-col gap-8">
+  <!-- Order Header -->
+  <section class="glass-panel rounded-xl p-6 md:p-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+    <div class="space-y-2">
+      <p class="font-label-caps text-label-caps text-primary-container">ORDER TRACKING</p>
+      <h1 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg tracking-tight" id="order-id-display">#CV-99283-FOG</h1>
+      <div class="flex items-center gap-4 mt-4">
+        <span id="order-status-display" class="px-3 py-1 bg-primary-container/20 border border-primary-container/30 text-primary-container rounded-full text-xs font-bold uppercase tracking-widest">Pending</span>
+        <p class="text-on-surface-variant flex items-center gap-2" id="payment-method-display">
+          <span class="material-symbols-outlined text-sm">payments</span>
+          Method: ...
+        </p>
+      </div>
+    </div>
+    <div class="flex gap-3">
+      <a href="order-tracking-mobile.html" class="px-6 py-3 bg-surface-container-high hover:bg-surface-container-highest transition-colors rounded-lg border border-white/5 flex items-center gap-2 font-label-caps text-label-caps text-on-surface">
+        <span class="material-symbols-outlined text-base">smartphone</span> MOBILE VIEW
+      </a>
+      <button class="px-6 py-3 bg-primary-container text-on-primary-container font-bold rounded-lg shadow-[0_0_15px_rgba(0,240,255,0.4)] hover:shadow-[0_0_25px_rgba(0,240,255,0.6)] transition-all active:scale-95 font-label-caps text-label-caps">
+        VIEW RECEIPT
+      </button>
+    </div>
+  </section>
+
+  <!-- Main Content Area: Map & Sidebar -->
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 h-full">
+    <!-- Tracking Core (Left/Center) -->
+    <div class="lg:col-span-8 flex flex-col gap-8">
+      <!-- Live Stepper -->
+      <div class="glass-panel rounded-xl p-8 overflow-hidden relative">
+        <div class="flex justify-between items-center relative z-10" id="stepper-container">
+          <!-- Step 1 (Placed) -->
+          <div class="flex flex-col items-center gap-3 z-20" id="step-placed">
+            <div class="step-icon w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center transition-all duration-300">
+              <span class="material-symbols-outlined">check_circle</span>
+            </div>
+            <p class="step-label font-label-caps text-label-caps text-on-surface-variant text-center transition-all duration-300">Placed</p>
+          </div>
+          <!-- Step 2 (Paid/Warehouse) -->
+          <div class="flex flex-col items-center gap-3 z-20" id="step-paid">
+            <div class="step-icon w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center transition-all duration-300">
+              <span class="material-symbols-outlined">payments</span>
+            </div>
+            <p class="step-label font-label-caps text-label-caps text-on-surface-variant text-center transition-all duration-300">Paid</p>
+          </div>
+          <!-- Step 3 (Transit) -->
+          <div class="flex flex-col items-center gap-3 z-20" id="step-transit">
+            <div class="step-icon w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center transition-all duration-300">
+              <span class="material-symbols-outlined">local_shipping</span>
+            </div>
+            <p class="step-label font-label-caps text-label-caps text-on-surface-variant text-center transition-all duration-300">Transit</p>
+          </div>
+          <!-- Step 4 (Arrived) -->
+          <div class="flex flex-col items-center gap-3 z-20" id="step-arrived">
+            <div class="step-icon w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center transition-all duration-300">
+              <span class="material-symbols-outlined">home</span>
+            </div>
+            <p class="step-label font-label-caps text-label-caps text-on-surface-variant text-center transition-all duration-300">Arrived</p>
+          </div>
+          <!-- Connecting Line Background -->
+          <div class="absolute top-5 left-0 w-full h-[2px] bg-surface-variant -z-10"></div>
+          <!-- Active Connecting Line -->
+          <div class="absolute top-5 left-0 w-[0%] h-[2px] bg-primary-container -z-10 shadow-[0_0_10px_rgba(0,240,255,0.5)] transition-all duration-500" id="active-step-line"></div>
+        </div>
+      </div>
+      
+      <!-- Interactive Neon Map -->
+      <div class="glass-panel rounded-xl overflow-hidden relative h-[450px] group border-primary-container/20">
+        <div class="absolute inset-0 map-grid opacity-30"></div>
+        <!-- Decorative Map Elements -->
+        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <div class="w-full h-full p-12 grid grid-cols-6 grid-rows-4 gap-4 opacity-10">
+            <div class="bg-surface-slate rounded-lg"></div>
+            <div class="bg-surface-slate rounded-lg col-span-2"></div>
+            <div class="bg-surface-slate rounded-lg"></div>
+            <div class="bg-surface-slate rounded-lg"></div>
+            <div class="bg-surface-slate rounded-lg"></div>
+            <div class="bg-surface-slate rounded-lg row-span-2"></div>
+            <div class="bg-surface-slate rounded-lg"></div>
+            <div class="bg-surface-slate rounded-lg"></div>
+            <div class="bg-surface-slate rounded-lg"></div>
+            <div class="bg-surface-slate rounded-lg col-span-2"></div>
+          </div>
+        </div>
+        <!-- Path Line -->
+        <svg class="absolute inset-0 w-full h-full pointer-events-none" fill="none" viewbox="0 0 800 450">
+          <path class="opacity-40" d="M100,350 L300,350 L300,150 L600,150 L600,100" id="delivery-path" stroke="#00f0ff" stroke-dasharray="8 8" stroke-width="3"></path>
+          <circle cx="100" cy="350" fill="#00f0ff" r="6"></circle>
+          <circle cx="600" cy="100" fill="#b600f8" r="6"></circle>
+        </svg>
+        <!-- Delivery Icon (Courier) -->
+        <div class="absolute left-[450px] top-[150px] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-2 transition-all duration-1000 ease-in-out" id="courier-icon">
+          <div class="bg-primary-container p-2 rounded-full shadow-[0_0_20px_rgba(0,240,255,0.6)] text-on-primary-container animate-bounce">
+            <span class="material-symbols-outlined">electric_moped</span>
+          </div>
+          <div class="bg-glass-fill border border-primary-container/30 px-3 py-1 rounded-full whitespace-nowrap">
+            <span class="text-[10px] font-label-caps text-primary-container">RYAN (COURIER)</span>
+          </div>
+        </div>
+        <!-- Destination Icon (Home) -->
+        <div class="absolute right-[170px] top-[100px] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-2">
+          <div class="bg-secondary-container p-3 rounded-xl shadow-[0_0_20px_rgba(182,0,248,0.4)] text-on-secondary-container">
+            <span class="material-symbols-outlined">home</span>
+          </div>
+          <div class="bg-glass-fill border border-secondary/30 px-3 py-1 rounded-full">
+            <span class="text-[10px] font-label-caps text-secondary">YOUR DROPZONE</span>
+          </div>
+        </div>
+        <!-- Map Overlay Controls -->
+        <div class="absolute bottom-6 right-6 flex flex-col gap-3">
+          <button class="w-12 h-12 bg-surface-container-high hover:bg-surface-container-highest rounded-lg flex items-center justify-center border border-white/10 text-on-surface transition-all">
+            <span class="material-symbols-outlined">add</span>
+          </button>
+          <button class="w-12 h-12 bg-surface-container-high hover:bg-surface-container-highest rounded-lg flex items-center justify-center border border-white/10 text-on-surface transition-all">
+            <span class="material-symbols-outlined">remove</span>
+          </button>
+        </div>
+        <div class="absolute top-6 left-6 p-4 glass-panel rounded-lg border-primary-container/20">
+          <p class="text-[10px] font-label-caps text-on-surface-variant mb-1 uppercase">CURRENT SPEED</p>
+          <p class="font-headline-md text-primary-container">42 <span class="text-xs">km/h</span></p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Tracking History Sidebar -->
+    <aside class="lg:col-span-4 flex flex-col gap-6">
+      <!-- Tracking History -->
+      <div class="glass-panel rounded-xl flex-grow flex flex-col p-6 overflow-hidden">
+        <h3 class="font-headline-md text-headline-md mb-6 flex items-center gap-2">
+          <span class="material-symbols-outlined text-primary-container">history</span>
+          Tracking History
+        </h3>
+        <div id="ledger-history-container" class="space-y-8 overflow-y-auto custom-scrollbar pr-2 flex-grow">
+          <!-- Populated Dynamically -->
+          <p class="text-center text-on-surface-variant py-8">Loading history...</p>
+        </div>
+        
+        <!-- Courier Contact -->
+        <div class="mt-8 pt-6 border-t border-white/10 space-y-4">
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-full overflow-hidden border border-primary-container/30">
+              <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzF0UdC7djsx-LmyyQymnT4GsH2bTjpvmqGNOq0BwP9ZisoNk_lNvBhOVwm5SgAkcJDfTjAUJzp9jAD6vkM4C22_T47FHmgnk94DaBPLGhl50F8jnFypjmokXE-6m9Ss7hMq67qDlJaD3gkRAmM1ACdyQabkTcXtreWVkEY_tlem-rl0u-GPEw-eiLliO06MEZQvxN-ixiDNExOR0-Fa_gc4ZdeztASsJYuzKafseqMrx3EgnQKoEs6hQYBsL6Cgw0gvMBbVrW1S0A"/>
+            </div>
+            <div>
+              <p class="font-bold text-on-surface">Ryan Cooper</p>
+              <p class="text-xs text-on-surface-variant">Cyber-Delivery Specialist</p>
+            </div>
+            <div class="ml-auto flex items-center gap-1 text-primary-container">
+              <span class="material-symbols-outlined text-sm">star</span>
+              <span class="font-bold">4.9</span>
+            </div>
+          </div>
+          <div class="flex gap-2">
+            <button class="flex-grow py-3 bg-primary-container/10 border border-primary-container/20 hover:bg-primary-container/20 transition-all text-primary-container rounded-lg font-label-caps text-label-caps flex items-center justify-center gap-2">
+              <span class="material-symbols-outlined text-sm">chat_bubble</span> MESSAGE
+            </button>
+            <button class="w-12 h-12 flex items-center justify-center bg-primary-container text-on-primary-container rounded-lg hover:shadow-[0_0_15px_rgba(0,240,255,0.4)] transition-all">
+              <span class="material-symbols-outlined">call</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Ad/Promotion Panel -->
+      <div class="glass-panel rounded-xl p-6 bg-gradient-to-br from-secondary-container/20 to-transparent relative overflow-hidden group border-secondary-container/20">
+        <div class="absolute -right-4 -bottom-4 w-24 h-24 bg-secondary-container/20 blur-3xl group-hover:bg-secondary-container/40 transition-all"></div>
+        <p class="font-label-caps text-label-caps text-secondary mb-2">WHILE YOU WAIT</p>
+        <h4 class="font-headline-md text-on-surface mb-3 leading-tight">Try the new Neon-Burst PODs</h4>
+        <p class="text-sm text-on-surface-variant mb-4">Add to your next delivery and get 20% off with code: <span class="text-secondary font-mono">FOG20</span></p>
+        <button class="w-full py-2 bg-secondary text-on-secondary-fixed font-bold rounded hover:shadow-[0_0_15px_rgba(188,19,254,0.4)] transition-all text-sm">SHOP DEALS</button>
+      </div>
+
+      <!-- QR Code Payment Panel (Dynamic) -->
+      <div id="qr-payment-panel" class="hidden glass-panel rounded-xl p-6 bg-gradient-to-br from-primary-container/10 to-transparent border-primary-container/20 flex-col items-center gap-4">
+        <p class="font-label-caps text-label-caps text-primary-container">SCAN TO PAY</p>
+        <img id="qr-image" src="" alt="Payment QR Code" class="w-48 h-48 rounded-lg shadow-[0_0_20px_rgba(0,240,255,0.4)] bg-white p-2" />
+        <p class="text-xs text-on-surface-variant text-center leading-relaxed">Open your supported Bank or E-Wallet App and scan this code to complete payment.</p>
+        <div class="mt-2 p-3 bg-surface-container-high rounded border border-white/5 text-[9px] text-on-surface-variant text-left font-mono">
+          <span class="text-secondary font-bold block mb-1">DEV GUIDE:</span>
+          Swap mock generation in routes/orders.js with actual Gateway APIs like PayMongo `POST /v1/links` to get real QR intents.
+        </div>
+      </div>
+
+      <!-- Webhook Simulation Panel -->
+      <div id="simulation-panel" class="glass-panel rounded-xl p-6 bg-gradient-to-br from-primary-container/10 to-transparent border-primary-container/20 space-y-4">
+        <div>
+          <p class="font-label-caps text-label-caps text-primary-container mb-1">GCASH GATEWAY SIMULATOR</p>
+          <h4 class="font-bold text-on-surface leading-tight text-sm">Asynchronous Webhook Verification</h4>
+        </div>
+        <p class="text-xs text-on-surface-variant leading-relaxed">Simulates payment gateways sending signed capture webhooks. This appends a state to the immutable ledger.</p>
+        <div class="flex gap-2">
+          <button id="btn-simulate-success" class="flex-grow py-3 bg-emerald-600 hover:bg-emerald-500 transition-all text-white font-bold rounded-lg text-xs font-label-caps text-label-caps shadow-md active:scale-95">
+            SUCCESS
+          </button>
+          <button id="btn-simulate-fail" class="flex-grow py-3 bg-red-600 hover:bg-red-500 transition-all text-white font-bold rounded-lg text-xs font-label-caps text-label-caps shadow-md active:scale-95">
+            FAIL
+          </button>
+        </div>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<footer class="bg-surface-container-lowest w-full mt-auto border-t border-surface-variant">
+  <div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop py-base gap-gutter max-w-container-max mx-auto">
+    <div class="flex items-center gap-6">
+      <span class="font-headline-md text-headline-md text-secondary-container">CYBER-VAPE</span>
+      <p class="font-label-caps text-label-caps text-secondary hidden lg:block opacity-80">© 2024 CYBER-VAPE. ALL RIGHTS RESERVED. ENJOY THE FOG.</p>
+    </div>
+    <div class="flex gap-4 md:gap-8 overflow-x-auto no-scrollbar py-2">
+      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-tertiary transition-colors whitespace-nowrap" href="#">Terms of Service</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-tertiary transition-colors whitespace-nowrap" href="#">Privacy Policy</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-tertiary transition-colors whitespace-nowrap" href="#">Compliance</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-tertiary transition-colors whitespace-nowrap" href="#">Shipping Info</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-tertiary transition-colors whitespace-nowrap" href="#">Contact Us</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Simple micro-interaction for the map icon
+  const courier = document.getElementById('courier-icon');
+  if (courier) {
+    let moveState = 0;
+    setInterval(() => {
+        const positions = [
+            { left: '450px', top: '150px' },
+            { left: '465px', top: '155px' },
+            { left: '455px', top: '165px' },
+            { left: '440px', top: '160px' }
+        ];
+        moveState = (moveState + 1) % positions.length;
+        courier.style.left = positions[moveState].left;
+        courier.style.top = positions[moveState].top;
+    }, 3000);
+  }
+
+  // Get order ID from URL query parameters
+  const urlParams = new URLSearchParams(window.location.search);
+  const orderId = urlParams.get('order_id');
+
+  // Floating Toast alert
+  function showToast(message, isError = true) {
+      document.querySelectorAll('.tracking-toast').forEach(t => t.remove());
+      const toast = document.createElement('div');
+      toast.className = `tracking-toast fixed bottom-6 right-6 z-50 flex items-center gap-3 px-6 py-4 rounded-lg border backdrop-blur-xl shadow-2xl transition-all duration-300 translate-y-10 opacity-0 ${
+          isError ? 'bg-red-950/90 border-red-500/30 text-red-200' : 'bg-emerald-950/90 border-emerald-500/30 text-emerald-200'
+      }`;
+      const icon = document.createElement('span');
+      icon.className = 'material-symbols-outlined';
+      icon.textContent = isError ? 'error' : 'check_circle';
+      const text = document.createElement('span');
+      text.className = 'font-semibold text-sm';
+      text.textContent = message;
+      toast.appendChild(icon);
+      toast.appendChild(text);
+      document.body.appendChild(toast);
+      setTimeout(() => toast.classList.remove('translate-y-10', 'opacity-0'), 50);
+      setTimeout(() => {
+          toast.classList.add('translate-y-10', 'opacity-0');
+          setTimeout(() => toast.remove(), 300);
+      }, 4000);
+  }
+
+  async function fetchOrderDetails() {
+      if (!orderId) {
+          document.getElementById('order-id-display').textContent = 'No Order Selected';
+          document.getElementById('ledger-history-container').innerHTML = `
+              <p class="text-center text-on-surface-variant py-8">
+                Please place an order on the <a href="checkout.html" class="text-primary-container underline hover:text-primary">checkout page</a> first.
+              </p>
+          `;
+          const simPanel = document.getElementById('simulation-panel');
+          if (simPanel) simPanel.style.display = 'none';
+          return;
+      }
+
+      try {
+          const res = await fetch(`/api/orders/${orderId}`);
+          if (!res.ok) {
+              throw new Error('Order not found');
+          }
+          const data = await res.json();
+          updateUI(data);
+      } catch (err) {
+          console.error('[Tracking] Fetch error:', err);
+          document.getElementById('ledger-history-container').innerHTML = `
+              <p class="text-center text-red-400 py-8">
+                Failed to load tracking data for order ${orderId}.
+              </p>
+          `;
+      }
+  }
+
+  function updateUI(data) {
+      const { order, ledger } = data;
+
+      // Update Order Header
+      document.getElementById('order-id-display').textContent = '#' + order.id;
+      
+      const paymentDisplay = document.getElementById('payment-method-display');
+      paymentDisplay.innerHTML = `
+          <span class="material-symbols-outlined text-sm">payments</span>
+          Method: ${order.payment_method} | Total: ₱${order.total_amount.toFixed(2)}
+      `;
+
+      // Get latest ledger status
+      const latestLedger = ledger[ledger.length - 1];
+      const latestStatus = latestLedger ? latestLedger.status : 'CREATED';
+
+      const statusBadge = document.getElementById('order-status-display');
+      statusBadge.textContent = latestStatus.replace('_', ' ');
+
+      // Dynamic styles for status badge
+      statusBadge.className = 'px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest border ';
+      if (latestStatus === 'PAYMENT_SUCCESSFUL') {
+          statusBadge.className += 'bg-emerald-950/40 border-emerald-500/30 text-emerald-400';
+      } else if (latestStatus === 'PAYMENT_FAILED') {
+          statusBadge.className += 'bg-red-950/40 border-red-500/30 text-red-400';
+      } else {
+          statusBadge.className += 'bg-primary-container/20 border-primary-container/30 text-primary-container';
+      }
+
+      // Display QR Code if pending payment and qr_url exists
+      const qrPanel = document.getElementById('qr-payment-panel');
+      const qrImage = document.getElementById('qr-image');
+      if (qrPanel && qrImage) {
+          if (latestStatus === 'PENDING_PAYMENT' && order.qr_url) {
+              qrImage.src = order.qr_url;
+              qrPanel.classList.remove('hidden');
+              qrPanel.classList.add('flex');
+          } else {
+              qrPanel.classList.add('hidden');
+              qrPanel.classList.remove('flex');
+          }
+      }
+
+      // Update Stepper
+      updateStepper(latestStatus);
+
+      // Render history logs
+      const historyContainer = document.getElementById('ledger-history-container');
+      historyContainer.innerHTML = '';
+
+      ledger.forEach((item, idx) => {
+          const dateStr = new Date(item.timestamp).toLocaleString();
+          const isLatest = idx === ledger.length - 1;
+
+          const logRow = document.createElement('div');
+          logRow.className = `relative pl-8 border-l ${isLatest ? 'border-primary-container/30' : 'border-surface-variant'}`;
+
+          const dot = document.createElement('div');
+          dot.className = `absolute -left-[5px] top-0 w-2.5 h-2.5 rounded-full transition-all ${
+              isLatest 
+              ? 'bg-primary-container shadow-[0_0_8px_#00f0ff]' 
+              : 'bg-surface-variant'
+          }`;
+
+          const content = document.createElement('div');
+          content.className = 'space-y-1';
+          content.innerHTML = `
+              <p class="font-label-caps text-label-caps text-xs ${isLatest ? 'text-primary-container' : 'text-on-surface-variant'}">${dateStr}</p>
+              <p class="text-body-md font-bold ${isLatest ? 'text-on-surface' : 'text-on-surface-variant'}">${item.status.replace('_', ' ')}</p>
+              <p class="text-body-md text-on-surface-variant text-sm leading-relaxed">${item.description}</p>
+          `;
+
+          logRow.appendChild(dot);
+          logRow.appendChild(content);
+          historyContainer.appendChild(logRow);
+      });
+  }
+
+  function updateStepper(status) {
+      const steps = ['Placed', 'Paid', 'Transit', 'Arrived'];
+      let activeIndex = 0; // default Placed
+
+      if (status === 'PAYMENT_SUCCESSFUL') {
+          activeIndex = 1; // Paid
+      } else if (status === 'IN_TRANSIT') {
+          activeIndex = 2; // Transit
+      } else if (status === 'DELIVERED' || status === 'COMPLETED') {
+          activeIndex = 3; // Arrived
+      } else if (status === 'PAYMENT_FAILED') {
+          activeIndex = 0; // Stay at placed but status shows failed
+      }
+
+      // Update Step circles
+      const stepPlaced = document.getElementById('step-placed');
+      const stepPaid = document.getElementById('step-paid');
+      const stepTransit = document.getElementById('step-transit');
+      const stepArrived = document.getElementById('step-arrived');
+
+      const stepElements = [stepPlaced, stepPaid, stepTransit, stepArrived];
+
+      stepElements.forEach((el, idx) => {
+          if (!el) return;
+          const iconDiv = el.querySelector('.step-icon');
+          const label = el.querySelector('.step-label');
+
+          if (idx <= activeIndex) {
+              // Active / Completed step
+              iconDiv.className = 'step-icon w-10 h-10 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center shadow-[0_0_15px_rgba(0,240,255,0.4)] transition-all duration-300';
+              label.className = 'step-label font-label-caps text-label-caps text-primary-container text-center font-bold transition-all duration-300';
+              
+              // Pulse effect for the current active stage
+              if (idx === activeIndex) {
+                  iconDiv.classList.add('animate-pulse-cyan', 'ring-4', 'ring-primary-container/20');
+              } else {
+                  iconDiv.classList.remove('animate-pulse-cyan', 'ring-4', 'ring-primary-container/20');
+              }
+          } else {
+              // Inactive step
+              iconDiv.className = 'step-icon w-10 h-10 rounded-full bg-surface-variant text-on-surface-variant flex items-center justify-center transition-all duration-300';
+              label.className = 'step-label font-label-caps text-label-caps text-on-surface-variant text-center transition-all duration-300';
+              iconDiv.classList.remove('animate-pulse-cyan', 'ring-4', 'ring-primary-container/20');
+          }
+      });
+
+      // Update active line width
+      const activeLine = document.getElementById('active-step-line');
+      if (activeLine) {
+          const widths = ['0%', '33%', '66%', '100%'];
+          activeLine.style.width = widths[activeIndex];
+      }
+  }
+
+  // Simulator Triggers
+  document.getElementById('btn-simulate-success').onclick = () => triggerSimulation('PAYMENT_SUCCESSFUL');
+  document.getElementById('btn-simulate-fail').onclick = () => triggerSimulation('PAYMENT_FAILED', 'Insufficient balance');
+
+  async function triggerSimulation(status, reason = null) {
+      const btnSuccess = document.getElementById('btn-simulate-success');
+      const btnFail = document.getElementById('btn-simulate-fail');
+
+      btnSuccess.disabled = true;
+      btnFail.disabled = true;
+
+      try {
+          const res = await fetch('/api/payments/simulate-webhook', {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({
+                  order_id: orderId,
+                  status,
+                  failure_reason: reason
+              })
+          });
+
+          const result = await res.json();
+          if (res.ok && result.simulation === 'SUCCESS') {
+              showToast(`Webhook Verified! Ledger Appended: ${status}`, false);
+              fetchOrderDetails(); // Reload ledger timeline immediately
+          } else {
+              showToast(`Simulation Error: ${result.error || 'Failed to simulate capture'}`);
+          }
+      } catch (err) {
+          showToast(`Network Error running simulator: ${err.message}`);
+      } finally {
+          btnSuccess.disabled = false;
+          btnFail.disabled = false;
+      }
+  }
+
+  // Initial Load and Polling every 5 seconds for real-time ledger updates
+  fetchOrderDetails();
+  setInterval(fetchOrderDetails, 5000);
+</script>
+</body>
+</html>

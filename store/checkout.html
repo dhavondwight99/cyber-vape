@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Checkout | CYBER-VAPE</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link rel="stylesheet" href="../assets/css/theme.css"/>
+  <script src="../assets/js/shared.js"></script>
+</head>
+<body class="font-body-md text-on-background selection:bg-primary-container selection:text-on-primary">
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 w-full z-50 bg-glass-fill backdrop-blur-xl border-b border-white/10 shadow-[0_4_20px_rgba(0,0,0,0.5)]">
+  <div class="flex justify-between items-center px-margin-desktop py-4 max-w-container-max mx-auto">
+    <a class="font-headline-md text-headline-md font-bold text-primary-container drop-shadow-[0_0_10px_rgba(0,240,255,0.4)]" href="shop.html">CYBER-VAPE</a>
+    <nav class="hidden md:flex gap-gutter items-center">
+      <a class="text-on-surface-variant hover:text-primary transition-colors" href="shop.html">Shop</a>
+      <a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Flavors</a>
+      <a class="text-on-surface-variant hover:text-primary transition-colors text-primary-container border-b-2 border-primary-container pb-1" href="checkout.html">Checkout</a>
+      <a class="text-on-surface-variant hover:text-primary transition-colors" href="order-tracking.html">Track Order</a>
+      <a class="text-on-surface-variant hover:text-primary transition-colors" href="/store/login.html">Admin</a>
+    </nav>
+    <div class="flex items-center gap-4">
+      <button class="material-symbols-outlined text-on-surface-variant hover:bg-white/5 p-2 rounded-full transition-all">shopping_cart</button>
+      <button class="material-symbols-outlined text-on-surface-variant hover:bg-white/5 p-2 rounded-full transition-all">account_circle</button>
+    </div>
+  </div>
+</header>
+
+<main class="pt-24 pb-12 px-4 md:px-margin-desktop max-w-container-max mx-auto">
+  <!-- Progress Indicator -->
+  <div class="flex items-center justify-center mb-12 overflow-x-auto py-4">
+    <div class="flex items-center space-x-4">
+      <div class="flex items-center text-primary-container">
+        <span class="w-8 h-8 rounded-full border-2 border-primary-container flex items-center justify-center font-bold text-xs bg-primary-container/10">1</span>
+        <span class="ml-2 font-label-caps text-label-caps whitespace-nowrap">SHIPPING</span>
+      </div>
+      <div class="w-12 h-px bg-surface-variant"></div>
+      <div class="flex items-center text-primary-container">
+        <span class="w-8 h-8 rounded-full border-2 border-primary-container flex items-center justify-center font-bold text-xs bg-primary-container/20 shadow-[0_0_10px_rgba(0,240,255,0.4)]">2</span>
+        <span class="ml-2 font-label-caps text-label-caps whitespace-nowrap">PAYMENT</span>
+      </div>
+      <div class="w-12 h-px bg-surface-variant"></div>
+      <div class="flex items-center text-on-surface-variant">
+        <span class="w-8 h-8 rounded-full border-2 border-surface-variant flex items-center justify-center font-bold text-xs">3</span>
+        <span class="ml-2 font-label-caps text-label-caps whitespace-nowrap">CONFIRM</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+    <!-- Left Column: Forms -->
+    <div class="lg:col-span-8 space-y-gutter">
+      <!-- Delivery Info Section -->
+      <section class="glass-panel rounded-xl p-8">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="material-symbols-outlined text-primary-container">local_shipping</span>
+          <h2 class="font-headline-md text-headline-md">Delivery Information</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="space-y-1">
+            <label class="font-label-caps text-label-caps text-on-surface-variant block">FULL NAME</label>
+            <input id="full-name" class="w-full bg-surface-container border-b border-surface-variant focus:border-primary-container focus:ring-0 text-on-background transition-all py-3 px-4 outline-none" placeholder="John Silverhand" type="text"/>
+          </div>
+          <div class="space-y-1">
+            <label class="font-label-caps text-label-caps text-on-surface-variant block">CONTACT NUMBER</label>
+            <input id="contact-number" class="w-full bg-surface-container border-b border-surface-variant focus:border-primary-container focus:ring-0 text-on-background transition-all py-3 px-4 outline-none" placeholder="+63 9XX XXX XXXX" type="tel"/>
+          </div>
+          <div class="md:col-span-2 space-y-1">
+            <label class="font-label-caps text-label-caps text-on-surface-variant block">STREET ADDRESS / BUILDING</label>
+            <input id="address" class="w-full bg-surface-container border-b border-surface-variant focus:border-primary-container focus:ring-0 text-on-background transition-all py-3 px-4 outline-none" placeholder="Apartment 2077, Night City Heights" type="text"/>
+          </div>
+          <div class="space-y-1">
+            <label class="font-label-caps text-label-caps text-on-surface-variant block">DISTRICT / CITY</label>
+            <input id="city" class="w-full bg-surface-container border-b border-surface-variant focus:border-primary-container focus:ring-0 text-on-background transition-all py-3 px-4 outline-none" placeholder="Bonifacio Global City" type="text"/>
+          </div>
+          <div class="space-y-1">
+            <label class="font-label-caps text-label-caps text-on-surface-variant block">POSTAL CODE</label>
+            <input id="postal-code" class="w-full bg-surface-container border-b border-surface-variant focus:border-primary-container focus:ring-0 text-on-background transition-all py-3 px-4 outline-none" placeholder="1634" type="text"/>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Payment Method Selection -->
+      <section class="glass-panel rounded-xl p-8">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="material-symbols-outlined text-primary-container">payments</span>
+          <h2 class="font-headline-md text-headline-md">Payment Method</h2>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+          <!-- GCash -->
+          <button class="payment-btn flex flex-col items-center justify-center p-6 rounded-lg border border-surface-variant bg-white/5 hover:bg-white/10 transition-all duration-300" data-method="GCASH" onclick="selectPayment(this)">
+            <span class="material-symbols-outlined text-primary-container text-4xl mb-2">wallet</span>
+            <span class="font-label-caps text-label-caps">GCASH</span>
+          </button>
+          <!-- Maya -->
+          <button class="payment-btn flex flex-col items-center justify-center p-6 rounded-lg border border-surface-variant bg-white/5 hover:bg-white/10 transition-all duration-300" data-method="MAYA" onclick="selectPayment(this)">
+            <span class="material-symbols-outlined text-tertiary text-4xl mb-2">token</span>
+            <span class="font-label-caps text-label-caps">MAYA</span>
+          </button>
+          <!-- GoTyme -->
+          <button class="payment-btn flex flex-col items-center justify-center p-6 rounded-lg border border-surface-variant bg-white/5 hover:bg-white/10 transition-all duration-300" data-method="GOTYME" onclick="selectPayment(this)">
+            <span class="material-symbols-outlined text-secondary text-4xl mb-2">credit_card</span>
+            <span class="font-label-caps text-label-caps">GOTYME</span>
+          </button>
+          <!-- BDO/BPI -->
+          <button class="payment-btn flex flex-col items-center justify-center p-6 rounded-lg border border-surface-variant bg-white/5 hover:bg-white/10 transition-all duration-300" data-method="BANK_TRANSFER" onclick="selectPayment(this)">
+            <span class="material-symbols-outlined text-on-surface-variant text-4xl mb-2">account_balance</span>
+            <span class="font-label-caps text-label-caps text-center leading-tight">BANK<br/>TRANSFER</span>
+          </button>
+          <!-- COD -->
+          <button class="payment-btn flex flex-col items-center justify-center p-6 rounded-lg border border-surface-variant bg-white/5 hover:bg-white/10 transition-all duration-300 active-glow" data-method="COD" onclick="selectPayment(this)">
+            <span class="material-symbols-outlined text-primary-container text-4xl mb-2">handshake</span>
+            <span class="font-label-caps text-label-caps">COD</span>
+          </button>
+        </div>
+      </section>
+    </div>
+    
+    <!-- Right Column: Order Summary -->
+    <aside class="lg:col-span-4">
+      <div class="glass-panel rounded-xl p-8 sticky top-28 space-y-8">
+        <h2 class="font-headline-md text-headline-md">Order Summary</h2>
+        <!-- Product List -->
+        <div class="space-y-6" id="checkout-product-list">
+          <!-- Dynamically populated from cart -->
+        </div>
+        <!-- Divider -->
+        <div class="h-px bg-surface-variant opacity-50"></div>
+        <!-- Pricing Calculation -->
+        <div class="space-y-3">
+          <div class="flex justify-between text-on-surface-variant">
+            <span class="font-label-caps text-label-caps">SUBTOTAL</span>
+            <span id="checkout-subtotal">₱0.00</span>
+          </div>
+          <div class="flex justify-between text-on-surface-variant">
+            <span class="font-label-caps text-label-caps">SHIPPING FEE</span>
+            <span id="checkout-shipping">₱50.00</span>
+          </div>
+          <div class="flex justify-between text-on-surface-variant">
+            <span class="font-label-caps text-label-caps text-secondary">CYBER-PROMO (10%)</span>
+            <span class="text-secondary" id="checkout-discount">-₱0.00</span>
+          </div>
+          <div class="flex justify-between items-end pt-4">
+            <span class="font-label-caps text-label-caps">TOTAL AMOUNT</span>
+            <span class="font-display-lg text-headline-md text-primary-container drop-shadow-[0_0_10px_rgba(0,240,255,0.4)]" id="checkout-total">₱0.00</span>
+          </div>
+        </div>
+        <!-- CTA Button -->
+        <button id="complete-order-btn" class="w-full bg-primary-container text-on-primary font-headline-md text-headline-md py-6 rounded-lg hover:shadow-[0_0_20px_rgba(0,240,255,0.4)] active:scale-95 transition-all duration-300 flex items-center justify-center gap-3">
+          COMPLETE ORDER
+          <span class="material-symbols-outlined" id="btn-icon">bolt</span>
+        </button>
+        <p class="text-center font-label-caps text-[10px] text-on-surface-variant uppercase tracking-widest">Secure SSL Encrypted Transaction</p>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<footer class="w-full mt-auto bg-surface-container-lowest border-t border-surface-variant">
+  <div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop py-base gap-gutter max-w-container-max mx-auto">
+    <span class="font-headline-md text-headline-md text-secondary-container">CYBER-VAPE</span>
+    <div class="flex flex-wrap justify-center gap-6">
+      <a class="text-label-caps font-label-caps text-on-surface-variant hover:text-tertiary transition-colors" href="#">Terms of Service</a>
+      <a class="text-label-caps font-label-caps text-on-surface-variant hover:text-tertiary transition-colors" href="#">Privacy Policy</a>
+      <a class="text-label-caps font-label-caps text-on-surface-variant hover:text-tertiary transition-colors" href="#">Compliance</a>
+    </div>
+    <p class="text-label-caps font-label-caps text-secondary opacity-80">© 2024 CYBER-VAPE. ALL RIGHTS RESERVED. ENJOY THE FOG.</p>
+  </div>
+</footer>
+
+<script>
+  function selectPayment(element) {
+      document.querySelectorAll('.payment-btn').forEach(btn => {
+          btn.classList.remove('active-glow');
+      });
+      element.classList.add('active-glow');
+  }
+
+  // Idempotency & Checkout Logic
+  function generateUUID() {
+      return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+          var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+          return v.toString(16);
+      });
+  }
+
+  // Fetch or generate client-side idempotency key for this checkout flow
+  let idempotencyKey = localStorage.getItem('checkout_idempotency_key');
+  if (!idempotencyKey) {
+      idempotencyKey = generateUUID();
+      localStorage.setItem('checkout_idempotency_key', idempotencyKey);
+  }
+
+  // Premium Toast Notification System
+  function showToast(message, isError = true) {
+      // Remove any existing toasts first
+      document.querySelectorAll('.checkout-toast').forEach(t => t.remove());
+
+      const toast = document.createElement('div');
+      toast.className = `checkout-toast fixed bottom-6 right-6 z-50 flex items-center gap-3 px-6 py-4 rounded-lg border backdrop-blur-xl shadow-2xl transition-all duration-300 translate-y-10 opacity-0 ${
+          isError 
+          ? 'bg-red-950/90 border-red-500/30 text-red-200' 
+          : 'bg-emerald-950/90 border-emerald-500/30 text-emerald-200'
+      }`;
+      
+      const icon = document.createElement('span');
+      icon.className = 'material-symbols-outlined';
+      icon.textContent = isError ? 'error' : 'check_circle';
+      
+      const text = document.createElement('span');
+      text.className = 'font-semibold text-sm';
+      text.textContent = message;
+      
+      toast.appendChild(icon);
+      toast.appendChild(text);
+      document.body.appendChild(toast);
+      
+      // Animate in
+      setTimeout(() => {
+          toast.classList.remove('translate-y-10', 'opacity-0');
+      }, 50);
+      
+      // Auto-remove
+      setTimeout(() => {
+          toast.classList.add('translate-y-10', 'opacity-0');
+          setTimeout(() => toast.remove(), 300);
+      }, 4000);
+  }
+
+  // Load dynamic cart from localStorage, fallback to default items if empty
+  let cart = JSON.parse(localStorage.getItem('cv_cart')) || [];
+  
+  // Fallback default items to match initial visuals if cart is empty
+  if (cart.length === 0) {
+      cart = [
+          { name: 'Neon Grape E-Liquid', price: 850.00 / 55, qty: 1, specs: '3MG / 60ML', image_url: 'https://lh3.googleusercontent.com/aida-public/AB6AXuApzZJpIDVI_0ioHQAtvkItGD_VbpRRYrH2RNHE706H7IvGw0gn0v8ORkX3B1ZVRom75GIPMWGdn3FPFRd2g-gE4sqbuDY6FAoMQxm0p8pMo8bM_10OERoUgqYwUBgWDaPMxNAo-iufDFmF6F2XIwNala8KxBCB7crCZOv5gvxXptP5d8QmGGYw4Mxlnj_wDt9yFfkoYHWZ7ST0YIiixdcdt0mIUml9MmCAEZJe7zX2WizRLQiVKCB6LinjDU7QPH1-ro40JJyzcy_7' },
+          { name: 'Cyber-Stick 5000', price: 1200.00 / 55, qty: 1, specs: 'LUSH ICE / 5000 PUFFS', image_url: 'https://lh3.googleusercontent.com/aida-public/AB6AXuB-dfug15FrCRzha08b5GacwPQBE_HkmxeRV1R9djgrL6MK1oJr6rKwP6FqrZQzVfpBNWVPWXv_uzfZF3DrRyXL23bZMGJSJPv0N0hoA3ofDrpwPc_rF0TtisfPquwl0tO-mRlPEtIi5421qRthMlyCP66ScoPonNJPO3jm0lvl7UVCqE-Nitu9TIIBhe2tAJxAmKxQV0NmZlwrPT6oUzzsfX1wRBNM1a2MgukiwYDJcqSM6MCHPnnbdrIFc5aavx7vHmxzhIapclIb' }
+      ];
+  }
+
+  // Calculate pricing
+  const subtotal = cart.reduce((sum, item) => sum + (item.price * 55 * item.qty), 0);
+  const shippingFee = subtotal > 0 ? 50.00 : 0.00;
+  const discount = subtotal * 0.10; // 10% promo discount
+  const totalAmount = subtotal > 0 ? (subtotal + shippingFee - discount) : 0.00;
+
+  // Render product summary list
+  const productListContainer = document.getElementById('checkout-product-list');
+  if (productListContainer) {
+      productListContainer.innerHTML = cart.map(item => `
+          <div class="flex gap-4">
+            <div class="w-20 h-20 bg-surface-container rounded-lg overflow-hidden flex-shrink-0 border border-white/10 shadow-[0_0_15px_rgba(0,240,255,0.2)]">
+              <img class="w-full h-full object-cover" src="${item.image_url}" onerror="this.src='https://images.unsplash.com/photo-1539185441755-769473a23570?auto=format&fit=crop&q=80&w=300&h=300'"/>
+            </div>
+            <div class="flex-grow">
+              <p class="font-semibold text-on-background">${item.name} <span class="text-xs text-primary-container font-bold">x${item.qty}</span></p>
+              <p class="text-label-caps font-label-caps text-on-surface-variant mt-1">${item.specs}</p>
+              <p class="text-primary-container font-price-display text-price-display mt-2">₱${(item.price * 55 * item.qty).toFixed(2)}</p>
+            </div>
+          </div>
+      `).join('');
+  }
+
+  // Update totals display in DOM
+  document.getElementById('checkout-subtotal').textContent = `₱${subtotal.toFixed(2)}`;
+  document.getElementById('checkout-shipping').textContent = `₱${shippingFee.toFixed(2)}`;
+  document.getElementById('checkout-discount').textContent = `-₱${discount.toFixed(2)}`;
+  document.getElementById('checkout-total').textContent = `₱${totalAmount.toFixed(2)}`;
+
+  const checkoutBtn = document.getElementById('complete-order-btn');
+  const btnIcon = document.getElementById('btn-icon');
+
+  if (checkoutBtn) {
+      checkoutBtn.addEventListener('click', async (e) => {
+          e.preventDefault();
+
+          // Get fields
+          const fullName = document.getElementById('full-name').value.trim();
+          const contactNumber = document.getElementById('contact-number').value.trim();
+          const address = document.getElementById('address').value.trim();
+          const city = document.getElementById('city').value.trim();
+          const postalCode = document.getElementById('postal-code').value.trim();
+
+          // Get active payment method
+          const activeBtn = document.querySelector('.payment-btn.active-glow');
+          const paymentMethod = activeBtn ? activeBtn.getAttribute('data-method') : 'COD';
+
+          // Validation
+          if (!fullName || !contactNumber || !address || !city || !postalCode) {
+              showToast('Please fill out all delivery information fields.');
+              return;
+          }
+
+          // Disable button to prevent double-clicks & double charging
+          checkoutBtn.disabled = true;
+          checkoutBtn.classList.add('opacity-50', 'cursor-not-allowed');
+          checkoutBtn.innerHTML = 'PROCESSING TRANSACTION... <span class="material-symbols-outlined animate-spin">sync</span>';
+
+          const checkoutPayload = {
+              full_name: fullName,
+              contact_number: contactNumber,
+              address: address,
+              city: city,
+              postal_code: postalCode,
+              payment_method: paymentMethod,
+              items: cart.map(item => ({
+                  name: item.name,
+                  price: Number((item.price * 55).toFixed(2)),
+                  qty: item.qty,
+                  specs: item.specs
+              })),
+              subtotal: Number(subtotal.toFixed(2)),
+              shipping_fee: Number(shippingFee.toFixed(2)),
+              discount: Number(discount.toFixed(2)),
+              total_amount: Number(totalAmount.toFixed(2))
+          };
+
+          // Retry logic inside checkout submitter
+          async function sendCheckoutRequest(retries = 3) {
+              try {
+                  const response = await fetch('/api/payments/checkout', {
+                      method: 'POST',
+                      headers: {
+                          'Content-Type': 'application/json',
+                          'Idempotency-Key': idempotencyKey
+                      },
+                      body: JSON.stringify(checkoutPayload)
+                  });
+
+                  if (response.ok) {
+                      const result = await response.json();
+                      showToast('Order checkout completed! Redirecting...', false);
+                      
+                      // Success! Clear cart and idempotency key
+                      localStorage.removeItem('cv_cart');
+                      localStorage.removeItem('checkout_idempotency_key');
+                      
+                      setTimeout(() => {
+                          window.location.href = `order-tracking.html?order_id=${result.order_id}`;
+                      }, 1000);
+                  } else {
+                      const errData = await response.json();
+                      throw new Error(errData.error || 'Server rejected checkout transaction.');
+                  }
+              } catch (error) {
+                  console.warn(`[Checkout Retry] Attempt failed. Retries left: ${retries}. Error: ${error.message}`);
+                  if (retries > 0) {
+                      showToast(`Network timeout. Retrying in 2s... (Retries left: ${retries})`);
+                      setTimeout(() => sendCheckoutRequest(retries - 1), 2000);
+                  } else {
+                      showToast(error.message || 'Checkout failed. Please try again.');
+                      // Re-enable button
+                      checkoutBtn.disabled = false;
+                      checkoutBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+                      checkoutBtn.innerHTML = 'COMPLETE ORDER <span class="material-symbols-outlined">bolt</span>';
+                  }
+              }
+          }
+
+          // Trigger initial request
+          await sendCheckoutRequest();
+      });
+  }
+</script>
+</body>
+</html>

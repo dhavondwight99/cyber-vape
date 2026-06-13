@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CYBER-VAPE | Register</title>
+  <meta name="description" content="Register for a CYBER-VAPE customer account." />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+  <link rel="stylesheet" href="../assets/css/theme.css" />
+  <style>
+    body {
+      min-height: 100vh;
+      background: radial-gradient(circle at top, rgba(0, 240, 255, 0.16), transparent 20%),
+                  radial-gradient(circle at bottom right, rgba(188, 19, 254, 0.12), transparent 25%),
+                  linear-gradient(180deg, #06070f 0%, #090b12 100%);
+      color: #e3e2e7;
+    }
+    .form-card {
+      background: rgba(7, 10, 18, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(24px);
+      box-shadow: 0 40px 120px rgba(0, 0, 0, 0.35);
+    }
+    .text-error-neon {
+      color: #ff4a4a;
+      text-shadow: 0 0 10px rgba(255, 74, 74, 0.3);
+    }
+  </style>
+</head>
+<body>
+  <div class="min-h-screen flex flex-col justify-center px-4 py-12">
+    <div class="max-w-5xl mx-auto grid gap-10 lg:grid-cols-[1.4fr_1fr] items-center">
+      
+      <div class="space-y-6 text-center lg:text-left">
+        <p class="uppercase tracking-[0.35em] text-xs text-cyan-300">CUSTOMER REGISTRATION</p>
+        <h1 class="text-5xl sm:text-6xl font-extrabold tracking-tight text-white">Create your CYBER-VAPE account</h1>
+        <p class="max-w-xl text-base leading-8 text-slate-400">Register as a customer to browse the dynamic products catalog, customize your orders, and process rapid transactions.</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+          <a href="/store/login.html" class="rounded-full bg-white/5 border border-cyan-400/25 px-6 py-3 text-sm font-semibold uppercase tracking-[0.35em] text-cyan-100 hover:bg-cyan-400/10 transition text-center">Back to login</a>
+          <a href="/store/shop.html" class="rounded-full bg-purple-500/90 px-6 py-3 text-sm font-semibold uppercase tracking-[0.35em] text-white hover:bg-purple-400 transition text-center">Browse shop</a>
+        </div>
+      </div>
+
+      <div class="form-card rounded-[32px] p-8">
+        <form id="register-form" class="space-y-6">
+          <div class="space-y-2">
+            <label class="block text-[11px] uppercase tracking-[0.35em] text-slate-400">Full name</label>
+            <input id="full_name" type="text" required class="w-full rounded-3xl border border-white/10 bg-[#0f1220] px-4 py-4 text-sm text-white outline-none focus:border-cyan-400/60 focus:ring-0" placeholder="Your full name" />
+          </div>
+
+          <div class="space-y-2">
+            <label class="block text-[11px] uppercase tracking-[0.35em] text-slate-400">Email</label>
+            <input id="email" type="email" required class="w-full rounded-3xl border border-white/10 bg-[#0f1220] px-4 py-4 text-sm text-white outline-none focus:border-purple-400/60 focus:ring-0" placeholder="you@neonmail.io" />
+          </div>
+
+          <div class="space-y-2">
+            <label class="block text-[11px] uppercase tracking-[0.35em] text-slate-400">Password</label>
+            <input id="password" type="password" required class="w-full rounded-3xl border border-white/10 bg-[#0f1220] px-4 py-4 text-sm text-white outline-none focus:border-cyan-400/60 focus:ring-0" placeholder="Create a strong password" />
+          </div>
+
+          <div class="space-y-2">
+            <label class="block text-[11px] uppercase tracking-[0.35em] text-slate-400">Confirm password</label>
+            <input id="confirm_password" type="password" required class="w-full rounded-3xl border border-white/10 bg-[#0f1220] px-4 py-4 text-sm text-white outline-none focus:border-purple-400/60 focus:ring-0" placeholder="Confirm password" />
+          </div>
+
+          <div class="rounded-3xl border border-white/10 bg-white/5 p-4 text-sm text-slate-400">
+            <p class="font-semibold text-white">Instant account creation. After successful registration, you will be redirected immediately to the login screen to access the store.</p>
+          </div>
+
+          <button type="submit" class="w-full rounded-full bg-cyan-400 px-6 py-4 text-sm font-bold uppercase tracking-[0.35em] text-[#00181a] hover:bg-cyan-300 transition shadow-lg shadow-cyan-400/20">Register</button>
+          
+          <p id="error-message" class="text-sm text-error-neon text-center font-semibold hidden"></p>
+          
+          <p class="text-sm text-slate-400 text-center">Already registered? <a href="/store/login.html" class="text-cyan-300 hover:text-white font-medium transition">Login now</a>.</p>
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="../assets/js/shared.js"></script>
+  <script>
+    const registerForm = document.getElementById('register-form');
+    const errorMessage = document.getElementById('error-message');
+
+    registerForm.addEventListener('submit', async event => {
+      event.preventDefault();
+      errorMessage.classList.add('hidden');
+
+      const full_name = document.getElementById('full_name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value.trim();
+      const confirm_password = document.getElementById('confirm_password').value.trim();
+
+      if (!full_name || !email || !password || !confirm_password) {
+        errorMessage.textContent = 'All fields are required.';
+        errorMessage.classList.remove('hidden');
+        return;
+      }
+
+      if (password !== confirm_password) {
+        errorMessage.textContent = 'Passwords do not match.';
+        errorMessage.classList.remove('hidden');
+        return;
+      }
+
+      try {
+        const response = await fetch('/api/auth/register', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ full_name, email, password, confirm_password })
+        });
+
+        const payload = await response.json();
+        if (!response.ok) {
+          errorMessage.textContent = payload.error || 'Unable to register account.';
+          errorMessage.classList.remove('hidden');
+          return;
+        }
+
+        // Tagumpay ang pag-register, dideretso na sa login window
+        window.location.href = '/store/login.html';
+      } catch (err) {
+        errorMessage.textContent = 'Server unreachable. Please check your network and try again.';
+        errorMessage.classList.remove('hidden');
+      }
+    });
+  </script>
+</body>
+</html>

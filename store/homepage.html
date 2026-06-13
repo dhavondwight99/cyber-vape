@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CYBER-VAPE | Home</title>
+  <meta name="description" content="CYBER-VAPE futuristic vape shop landing page. Enter the neon portal to shop premium cyber-themed vape hardware and e-liquids." />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+  <link rel="stylesheet" href="../assets/css/theme.css" />
+  <style>
+    body {
+      min-height: 100vh;
+      background: radial-gradient(circle at top, rgba(0, 240, 255, 0.12), transparent 25%),
+                  radial-gradient(circle at 20% 25%, rgba(188, 19, 254, 0.14), transparent 20%),
+                  linear-gradient(180deg, #07080e 0%, #090a11 55%, #07080e 100%);
+      color: #e3e2e7;
+      font-family: Inter, system-ui, sans-serif;
+    }
+    .hero-glow {
+      box-shadow: 0 0 120px rgba(0, 240, 255, 0.18), 0 0 80px rgba(188, 19, 254, 0.12);
+    }
+    .neon-border {
+      border-image: linear-gradient(135deg, rgba(0,240,255,0.95), rgba(188,19,254,0.95)) 1;
+    }
+    .flicker {
+      animation: neon-flicker 3.8s ease-in-out infinite;
+    }
+    @keyframes neon-flicker {
+      0%, 100% { opacity: 1; }
+      8%, 11%, 18%, 22%, 26%, 31%, 36%, 40%, 45%, 50%, 58%, 62%, 68%, 73%, 83%, 89% { opacity: .85; }
+      10%, 20%, 30%, 47%, 70%, 92% { opacity: .6; }
+    }
+  </style>
+</head>
+<body>
+  <div class="min-h-screen relative overflow-hidden">
+    <div class="absolute inset-0 pointer-events-none">
+      <div class="absolute top-8 left-1/2 w-[28rem] h-[28rem] bg-cyan-400/10 rounded-full blur-3xl -translate-x-1/2"></div>
+      <div class="absolute bottom-0 right-8 w-[24rem] h-[24rem] bg-purple-500/10 rounded-full blur-3xl"></div>
+    </div>
+
+    <header class="relative z-20 px-6 md:px-12 py-6 flex items-center justify-between gap-6">
+      <a href="/" class="flex items-center gap-3">
+        <div class="w-12 h-12 rounded-2xl bg-[#0f1220]/90 border border-cyan-400/20 flex items-center justify-center neon-border">
+          <span class="material-symbols-outlined text-cyan-300 text-2xl">power_settings_new</span>
+        </div>
+        <div>
+          <p class="font-semibold uppercase tracking-[0.3em] text-cyan-200">CYBER-VAPE</p>
+          <p class="text-[11px] text-on-surface-variant uppercase tracking-[0.4em]">Neon Retail Portal</p>
+        </div>
+      </a>
+      <nav class="hidden lg:flex items-center gap-8 text-sm uppercase tracking-[0.35em] text-on-surface-variant">
+        <a href="#home" class="hover:text-white transition">Home</a>
+        <a href="#about" class="hover:text-white transition">About Us</a>
+        <a href="#contact" class="hover:text-white transition">Contact</a>
+      </nav>
+      <div class="flex items-center gap-3">
+        <a href="/store/login.html" class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-3 text-xs uppercase tracking-[0.35em] text-cyan-100 hover:bg-cyan-500/10 transition">
+          <span class="material-symbols-outlined">login</span> Portal Login
+        </a>
+        <a href="/store/register.html" class="inline-flex items-center gap-2 rounded-full border border-cyan-400/25 bg-cyan-400/10 px-4 py-3 text-xs uppercase tracking-[0.35em] text-cyan-100 hover:bg-cyan-400/15 transition">
+          <span class="material-symbols-outlined">person_add</span> Register
+        </a>
+      </div>
+    </header>
+
+    <main class="relative z-20 max-w-7xl mx-auto px-6 md:px-12 py-10">
+      <section id="home" class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center py-16">
+        <div class="space-y-8">
+          <span class="inline-flex items-center gap-2 rounded-full border border-cyan-400/25 bg-cyan-400/10 px-4 py-2 text-[11px] uppercase tracking-[0.35em] text-cyan-100 font-semibold">
+            <span class="w-2 h-2 rounded-full bg-cyan-300 animate-pulse"></span> Neon logistics engaged
+          </span>
+          <div>
+            <h1 class="text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-tight tracking-[-0.05em] text-white">
+              Step into the <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-fuchsia-300 to-purple-300">CYBER NEON MARKET</span>
+            </h1>
+            <p class="mt-6 max-w-xl text-sm sm:text-base text-on-surface-variant leading-7">
+              Discover premium vape rigs, cyberpunk e-liquids, and live inventory updates. Your journey begins in the vaporized metropolis of CYBER-VAPE.
+            </p>
+          </div>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="/store/shop.html" class="inline-flex items-center justify-center rounded-3xl bg-cyan-400 px-8 py-4 text-sm font-bold uppercase tracking-[0.35em] text-[#00181a] shadow-[0_0_30px_rgba(0,240,255,0.35)] hover:bg-cyan-300 transition">
+              Enter Shop
+            </a>
+            <a href="/store/login.html" class="inline-flex items-center justify-center rounded-3xl border border-purple-400/60 bg-[#0f1220]/80 px-8 py-4 text-sm font-semibold uppercase tracking-[0.35em] text-purple-200 hover:border-purple-300 hover:text-white transition">
+              Portal Login
+            </a>
+          </div>
+        </div>
+
+        <div class="relative overflow-hidden rounded-[40px] border border-white/10 bg-[#0b0c14]/80 p-8 shadow-[0_40px_120px_rgba(0,0,0,0.55)] hero-glow">
+          <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(0,240,255,0.18),transparent_24%),radial-gradient(circle_at_bottom_right,_rgba(188,19,254,0.18),transparent_30%)]"></div>
+          <div class="relative grid gap-6">
+            <div class="grid grid-cols-2 gap-4">
+              <div class="rounded-3xl border border-cyan-400/20 bg-white/5 p-6 neon-border flicker">
+                <p class="text-[11px] uppercase text-on-surface-variant tracking-[0.3em] mb-3">Live storefront</p>
+                <p class="text-3xl font-bold text-cyan-100">Live Sync</p>
+              </div>
+              <div class="rounded-3xl border border-purple-400/20 bg-white/5 p-6 neon-border flicker">
+                <p class="text-[11px] uppercase text-on-surface-variant tracking-[0.3em] mb-3">Secure checkout</p>
+                <p class="text-3xl font-bold text-purple-200">PayMongo</p>
+              </div>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div class="rounded-3xl border border-white/10 bg-surface-charcoal/80 p-5">
+                <p class="text-[11px] uppercase text-on-surface-variant tracking-[0.3em] mb-3">Featured</p>
+                <h2 class="text-2xl font-semibold text-white">CyberPulse 5000</h2>
+                <p class="mt-2 text-sm text-on-surface-variant">Glow coil + ionic mist cartridge.</p>
+              </div>
+              <div class="rounded-3xl border border-white/10 bg-surface-charcoal/80 p-5">
+                <p class="text-[11px] uppercase text-on-surface-variant tracking-[0.3em] mb-3">Stock Status</p>
+                <h2 class="text-2xl font-semibold text-white">220 Units</h2>
+                <p class="mt-2 text-sm text-on-surface-variant">Realtime inventory from the backend.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="grid gap-12 lg:grid-cols-[1.5fr_1fr] py-16 border-t border-white/10">
+        <div class="space-y-6">
+          <p class="text-[11px] uppercase tracking-[0.35em] text-on-surface-variant">ABOUT US</p>
+          <h2 class="text-4xl font-bold text-white">A neon storefront built for the digital smoke age.</h2>
+          <p class="max-w-xl text-base leading-8 text-on-surface-variant">
+            CYBER-VAPE is a full-stack vapor emporium engineered for future-ready shoppers and admin teams. We merge live product catalog updates, secure role-based control, and PayMongo-powered checkout in one neon interface.
+          </p>
+          <div class="grid gap-4 sm:grid-cols-2">
+            <div class="rounded-3xl border border-cyan-400/25 bg-[#08101c]/80 p-6">
+              <p class="text-xs uppercase tracking-[0.35em] text-on-surface-variant mb-3">Front-end</p>
+              <p class="font-semibold text-white">Ultra-sleek cyber theme with instant product sync.</p>
+            </div>
+            <div class="rounded-3xl border border-purple-400/25 bg-[#11081f]/80 p-6">
+              <p class="text-xs uppercase tracking-[0.35em] text-on-surface-variant mb-3">Back-end</p>
+              <p class="font-semibold text-white">SQLite RBAC, secure admin roles, and payment gateway orchestration.</p>
+            </div>
+          </div>
+        </div>
+        <div class="rounded-[36px] border border-white/10 bg-[#0d101b]/80 p-8 shadow-[0_30px_120px_rgba(0,0,0,0.55)]">
+          <h3 class="text-xl font-semibold text-white mb-4">Why choose CYBER-VAPE?</h3>
+          <ul class="space-y-4 text-on-surface-variant text-sm leading-7">
+            <li>• Dynamic storefront updates without redeploys.</li>
+            <li>• Super Admin and Staff Admin access control.</li>
+            <li>• Embedded PayMongo digital payment flow.</li>
+            <li>• Futuristic portal branding for customers and employees.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="contact" class="py-16 border-t border-white/10">
+        <div class="grid gap-6 lg:grid-cols-3">
+          <div class="col-span-2 rounded-[32px] border border-white/10 bg-[#0a0c14]/90 p-8 shadow-[0_20px_80px_rgba(0,0,0,0.45)]">
+            <p class="text-[11px] uppercase tracking-[0.35em] text-on-surface-variant mb-3">CONTACT</p>
+            <h2 class="text-3xl font-bold text-white mb-5">Talk to the Neon Support Grid</h2>
+            <p class="text-on-surface-variant leading-7 mb-8">Whether you’re ordering gear, onboarding a staff terminal, or setting up admin access, our cyber support channel is ready.</p>
+            <div class="grid gap-4 sm:grid-cols-2">
+              <div class="rounded-3xl border border-cyan-400/15 bg-white/5 p-6">
+                <p class="text-xs uppercase tracking-[0.35em] text-on-surface-variant mb-2">Email</p>
+                <p class="font-semibold text-white">support@cyber-vape.io</p>
+              </div>
+              <div class="rounded-3xl border border-purple-400/15 bg-white/5 p-6">
+                <p class="text-xs uppercase tracking-[0.35em] text-on-surface-variant mb-2">Portal</p>
+                <p class="font-semibold text-white">/store/login.html</p>
+              </div>
+            </div>
+          </div>
+          <div class="rounded-[32px] border border-white/10 bg-[#0c0f18]/90 p-8 flex flex-col justify-between">
+            <div>
+              <p class="text-[11px] uppercase tracking-[0.35em] text-on-surface-variant">STORE HOURS</p>
+              <div class="mt-5 space-y-3 text-base text-white font-semibold">
+                <p>Mon – Fri: 10AM – 10PM</p>
+                <p>Sat – Sun: 11AM – 11PM</p>
+              </div>
+            </div>
+            <div class="mt-8 rounded-3xl border border-white/10 bg-white/5 p-6">
+              <p class="text-xs uppercase tracking-[0.35em] text-on-surface-variant mb-3">Newsletter</p>
+              <p class="text-sm text-on-surface-variant leading-6 mb-5">Jump into our neon list for flash drops, admin updates, and product portal launches.</p>
+              <form onsubmit="event.preventDefault(); document.getElementById('newsletter-msg').textContent='Subscribed to the fog.';" class="space-y-3">
+                <input type="email" required placeholder="you@neonmail.io" class="w-full rounded-2xl border border-white/10 bg-[#0d101b] px-4 py-3 text-sm text-white outline-none focus:border-cyan-400/60" />
+                <button class="w-full rounded-2xl bg-purple-500/90 px-5 py-3 text-sm font-semibold uppercase tracking-[0.35em] text-white hover:bg-purple-400 transition">Subscribe</button>
+              </form>
+              <p id="newsletter-msg" class="mt-3 text-[12px] text-secondary-container"></p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="border-t border-white/10 py-8 px-6 md:px-12 text-center text-on-surface-variant">
+      <p class="text-xs uppercase tracking-[0.35em]">© 2026 CYBER-VAPE</p>
+      <p class="mt-3 text-[12px] max-w-2xl mx-auto">A full-stack neon-themed vape web app with secure admin roles and live storefront synchronization.</p>
+    </footer>
+  </div>
+</body>
+</html>
